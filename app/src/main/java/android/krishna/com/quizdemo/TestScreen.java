@@ -25,11 +25,12 @@ public class TestScreen extends ActionBarActivity {
 
     private TextView txtSecond,txtMinute,txtHour;
     int counter=0;
+    String selectedOption="NA";
     RadioButton optA,optB,optC,optD;
     Button btnPrevious,btnNext;
     public static HashMap<Integer,String> optionlist = new HashMap<Integer,String>();
     public static ArrayList<String> selectoptionlist=new ArrayList<String>();
-
+    boolean isclick=false;
     TextView txtQuestion,txtOptA,txtOptB,txtOptC,txtOptD,txtno;
 
     @Override
@@ -63,6 +64,71 @@ public class TestScreen extends ActionBarActivity {
         optionlist = new HashMap<Integer,String>();
         setclock();
         setupQuestion(counter);
+
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
+        btnPrevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
+
+
+
+        optA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isclick=true;
+                selectedOption="A";
+                optB.setChecked(false);
+                optC.setChecked(false);
+                optD.setChecked(false);
+                optionlist.put(counter, "A");
+            }
+        });
+
+        optB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isclick=true;
+                selectedOption="B";
+                optA.setChecked(false);
+                optC.setChecked(false);
+                optD.setChecked(false);
+                optionlist.put(counter, "B");
+            }
+        });
+        optC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isclick=true;
+                selectedOption="C";
+                optB.setChecked(false);
+                optA.setChecked(false);
+                optD.setChecked(false);
+                optionlist.put(counter, "C");
+            }
+        });
+        optD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isclick=true;
+                selectedOption="D";
+                optB.setChecked(false);
+                optC.setChecked(false);
+                optA.setChecked(false);
+                optionlist.put(counter, "D");
+            }
+        });
 
     }
 
