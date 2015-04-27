@@ -1,5 +1,6 @@
 package android.krishna.com.quizdemo;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,7 +20,8 @@ public class MainActivity extends ActionBarActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent i = new Intent(MainActivity.this,TestScreen.class);
+                startActivity(i);
             }
         });
     }
