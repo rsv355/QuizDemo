@@ -62,11 +62,88 @@ public class TestScreen extends ActionBarActivity {
 
         optionlist = new HashMap<Integer,String>();
         setclock();
+        setupQuestion(counter);
+
+    }
+
+private void setupQuestion(int counter){
+
+        if(counter==0){
+            btnPrevious.setVisibility(View.GONE);
+            btnNext.setVisibility(View.VISIBLE);
+        }
+
+        else{
+            btnPrevious.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.VISIBLE);
+        }
+
+        txtQuestion.setText(Questions.get(counter).toString());
+        txtno.setText(""+(counter+1));
+        txtOptA.setText(Answer1.get(counter).toString());
+        txtOptB.setText(Answer1.get(counter).toString());
+        txtOptC.setText(Answer1.get(counter).toString());
+        txtOptD.setText(Answer1.get(counter).toString());
+
+
+        fillcheckbox(counter);
+    }
+
+    void fillcheckbox(int counter){
+
+        optA.setChecked(false);
+        optB.setChecked(false);
+        optC.setChecked(false);
+        optD.setChecked(false);
+
+
+        if(optionlist.get(counter)==null){
+            // optionlist.put(counter, selectedOption);
+        }
+        else{
+            if (optionlist.get(counter).equalsIgnoreCase("A")) {
+                optA.setChecked(true);
+                optB.setChecked(false);
+                optC.setChecked(false);
+                optD.setChecked(false);
+                optionlist.put(counter, "A");
+
+            } else if (optionlist.get(counter).equalsIgnoreCase("B")) {
+                optA.setChecked(false);
+                optB.setChecked(true);
+                optC.setChecked(false);
+                optD.setChecked(false);
+                optionlist.put(counter, "B");
+
+            } else if (optionlist.get(counter).equalsIgnoreCase("C")) {
+                optA.setChecked(false);
+                optB.setChecked(false);
+                optC.setChecked(true);
+                optD.setChecked(false);
+                optionlist.put(counter, "C");
+
+            } else if (optionlist.get(counter).equalsIgnoreCase("D")) {
+                optA.setChecked(false);
+                optB.setChecked(false);
+                optC.setChecked(false);
+                optD.setChecked(true);
+                optionlist.put(counter, "D");
+
+            }else{
+                optA.setChecked(false);
+                optB.setChecked(false);
+                optC.setChecked(false);
+                optD.setChecked(false);
+                optionlist.put(counter, "NA");
+            }
+
+        }
+
 
     }
 
 
-    private void setclock(){
+private void setclock(){
 //3600000
         //120000
 
