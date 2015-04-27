@@ -1,17 +1,296 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"
+    xmlns:genius="http://schemas.android.com/apk/res-auto"
+    xmlns:ppv="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnStart"
-        android:text="Start Quiz"
-        android:gravity="center"
-        android:layout_gravity="center"
+    <LinearLayout
+        android:id="@+id/linearBottom"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnPrevious"
+            android:text="PREVIOUS"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+
+
+        <Button
+            android:id="@+id/btnNext"
+            android:text="NEXT"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/clockView"
+        android:padding="8dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/txtHour"
+                    android:textSize="52sp"
+                    android:textColor="#669999"
+                    android:text="00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+
+
+                    android:textSize="12sp"
+                    android:textColor="#1A4C80"
+                    android:text="hours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_gravity="top"
+                android:gravity="top"
+                android:textSize="52sp"
+                android:textColor="#476B6B"
+                android:text=":"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/txtMinute"
+                    android:textSize="52sp"
+                    android:textColor="#669999"
+                    android:text="00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+
+                    android:textSize="12sp"
+                    android:textColor="#1A4C80"
+                    android:text="minutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_gravity="top"
+                android:gravity="top"
+                android:textSize="52sp"
+                android:textColor="#476B6B"
+                android:text=":"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/txtSecond"
+                    android:textSize="52sp"
+                    android:textColor="#669999"
+                    android:text="00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+
+
+                    android:textSize="12sp"
+                    android:textColor="#1A4C80"
+                    android:text="seconds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Result"/>
+    </LinearLayout>
+
+    <ScrollView
+
+        android:layout_below="@+id/clockView"
+        android:layout_above="@id/linearBottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+
+            android:padding="16dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Q."
+                    android:layout_width="wrap_content"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:layout_height="wrap_content"
+                    android:textSize="35sp" />
+                <TextView
+                    android:text="1"
+                    android:id="@+id/txtQno"
+                    android:layout_width="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txtQuestion"
+                android:text="What is your age?"
+                android:layout_width="match_parent"
+                android:maxLines="5"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/img"/>
+
+            <!-- setting the opetions -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <!-- OPTION A -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:id="@+id/a"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/txtOptA"
+                        android:text="krishna"
+                        android:layout_width="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:textSize="22sp" />
+                </LinearLayout>
+                <!-- OPTION B -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:id="@+id/b"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/txtOptB"
+                        android:text="krishna"
+                        android:layout_width="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:textSize="22sp" />
+                </LinearLayout>
+                <!-- OPTION C -->
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:id="@+id/c"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/txtOptC"
+                        android:text="krishna"
+                        android:layout_width="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:textSize="22sp" />
+                </LinearLayout>
+                <!-- OPTION D -->
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:id="@+id/d"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/txtOptD"
+                        android:text="krishna"
+                        android:layout_width="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
